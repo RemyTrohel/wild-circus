@@ -1,0 +1,63 @@
+/********************* TITLE ************************/
+
+h1#title{
+    font-family: Amatic SC, cursive;
+    font-size:8vw;
+    text-align:center;
+    margin-bottom: 0px;
+}
+
+#title-left-img {
+    width: 8vw;
+}
+
+#title-right-img{
+    width: 8vw;
+    transform: scaleX(-1);
+}
+
+/********************* FORM ************************/
+
+.label-width {
+    min-width: 110px;
+}
+
+label {
+    width:100%;
+}
+
+.input-group-text {
+    font-size: 12pt;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.form-control::placeholder {
+    color: #333333;
+    opacity: 0.5;
+    font-size: 10pt;
+}
+
+.form-control-range {
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+}
+
+.form-control-range::-webkit-slider-thumb,
+.form-control-range::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #328080;
+    cursor: pointer;
+    border: none;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    color: #495057;
+    opacity: 0.9;
+}
