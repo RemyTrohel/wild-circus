@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <form action="" th:action="@{/users}" method="POST" th:method="POST" th:object="${user}">
+            <div>
+                <label for="mail">Mail</label>
+                <input type="mail" id="mail" th:name="mail" th:value="${mail}" required/>
+                <span th:if="${mailUsed}" th:text="${mailUsed}"></span>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" th:name="password" th:value="${password}" required/>
+            </div>
+            <div>
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" th:name="firstname" th:value="${firstname}" required/>
+            </div>
+            <div>
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" th:name="lastname" th:value="${lastname}" required/>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <div th:if="${message}" th:text="${message}"></div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
