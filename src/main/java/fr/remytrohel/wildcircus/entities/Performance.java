@@ -1,10 +1,15 @@
 package fr.remytrohel.wildcircus.entities;
 
+import java.util.Set;
+import java.util.TreeSet;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Performance {
@@ -19,6 +24,9 @@ public class Performance {
     private String description;
     
     private String artist;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Spectacle> spectacles = new TreeSet<Spectacle>();
 
     public Performance(Long id, String name, String description, String artist) {
         this.id = id;
