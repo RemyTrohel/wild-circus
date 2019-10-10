@@ -116,6 +116,18 @@ button.bg-grey:hover, a.bg-grey:hover, a.bg-reddish:hover, a:not([href]):not([ta
 }
 
 /********************* FORM ************************/
+.custom-select {
+    width: 100%;
+    border-radius: 0;
+}
+
+.custom-select:focus {
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+    border-radius: 0;
+    color : #950740;
+    background-color: white;
+}
 
 .label-width {
     min-width: 110px;
@@ -212,4 +224,11 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
+}
+
+#total_cart {
+    text-align: right;
+    background-color: #1A1A1D;
+    border-bottom-color: #1A1A1D;
+    border-left-color:#1A1A1D;
 }

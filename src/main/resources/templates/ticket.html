@@ -21,7 +21,7 @@
                             required
                         >
                             <option value="" selected disabled hidden>Choose a category</option>
-                            <option th:value="${category}" th:each="category : ${categories}" th:text="category.name"></option>
+                            <option th:value="${category.id}" th:each="category : ${categories}" th:text="${category.name}"></option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
@@ -40,7 +40,7 @@
                         <input 
                             type="hidden" 
                             th:name="booking" 
-                            th:value="${booking}"
+                            th:value="${booking.id}"
                         >
                     </div>
                     <div class="input-group mb-3 justify-content-center">

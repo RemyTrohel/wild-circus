@@ -30,7 +30,6 @@ public class SpectacleController {
     @PostMapping("/spectacle")
     public String createSpectacle(Date date) {
         Spectacle spectacle = spectacleRepository.findByDate(date);
-        System.out.println(spectacle);
         if (spectacle == null) {
             Set<Performance> performances = new HashSet<Performance>(performanceRepository.findAll());
             spectacle = new Spectacle(date);
@@ -38,7 +37,6 @@ public class SpectacleController {
             spectacle.setPerformances(performances);
             spectacle = spectacleRepository.save(spectacle);
         }
-        System.out.println(spectacle);
         Booking booking = new Booking(spectacle);
         booking = bookingRepository.save(booking);
         return "redirect:/bookings/" + booking.getId() + "/edit";
