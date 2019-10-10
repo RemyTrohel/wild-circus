@@ -1,7 +1,5 @@
 package fr.remytrohel.wildcircus.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,10 +32,10 @@ public class UserController {
             userRepository.save(user);
             redirectAttributes.addFlashAttribute("message", "Registration success !");
         }
-        return "redirect:/users/register";
+        return "redirect:/register";
     }
 
-    @GetMapping("/users/register")
+    @GetMapping("/register")
     public String register(
         Model model,
         @ModelAttribute("mailUsed") String mailUsed,

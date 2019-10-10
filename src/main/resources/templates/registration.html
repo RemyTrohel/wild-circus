@@ -3,30 +3,33 @@
     <div th:replace="fragments/head.html :: head"></div>
     <body>
         <div th:replace="fragments/header.html :: header"></div>
+        <div th:replace="fragments/navbar.html :: nav"></div>
         <main class="container align-items-center justify-content-center">
+            <h2 class="reddish">Registration</h2>
             <div class="d-flex align-items-center justify-content-center">
                 <form action="" th:action="@{/users}" method="POST" th:method="POST" th:object="${user}">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend label-width">
-                            <label class="input-group-text flex-centered" for="mail">Mail</label>
+                            <label class="input-group-text flex-centered bg-black" for="mail">Mail</label>
                         </div>
                         <input 
                             type="mail"
-                            class="form-control"
+                            class="form-control bg-grey"
                             id="mail" 
                             th:name="mail" 
-                            th:value="${mail}" 
+                            th:value="${mail}"
+                            th:placeholder="${mailUsed}"
                             required
                         />
-                        <span th:if="${mailUsed}" th:text="${mailUsed}"></span>
+                        <!-- <span th:if="${mailUsed}" th:text="${mailUsed}"></span> -->
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 border-reddish">
                         <div class="input-group-prepend label-width">
-                            <label class="input-group-text flex-centered" for="password">Password</label>
+                            <label class="input-group-text flex-centered bg-black" for="password">Password</label>
                         </div>
                         <input 
                             type="password"
-                            class="form-control"
+                            class="form-control bg-grey"
                             id="password" 
                             th:name="password" 
                             th:value="${password}" 
@@ -35,11 +38,11 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend label-width">
-                            <label class="input-group-text flex-centered" for="firstname">Firstname</label>
+                            <label class="input-group-text flex-centered bg-black" for="firstname">Firstname</label>
                         </div>
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control bg-grey"
                             id="firstname"
                             th:name="firstname"
                             th:value="${firstname}"
@@ -48,11 +51,11 @@
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend label-width">
-                            <label class="input-group-text flex-centered" for="lastname">Lastname</label>
+                            <label class="input-group-text flex-centered bg-black" for="lastname">Lastname</label>
                         </div>
                         <input
                             type="text"
-                            class="form-control"
+                            class="form-control bg-grey"
                             id="lastname"
                             th:name="lastname"
                             th:value="${lastname}"
@@ -60,14 +63,14 @@
                         />
                     </div>
                     <div class="input-group mb-3 justify-content-center">
-                        <button class="btn btn-primary flex-centered" type="submit">
+                        <button class="btn bg-grey flex-centered" type="submit">
                             Register
                         </button>
                     </div>
                     
                 </form>
-                <div th:if="${message}" th:text="${message}"></div>
             </div>
+            <div class="reddish" th:if="${message}" th:text="${message}"></div>
         </main>
         <div th:replace="fragments/script.html :: script"></div>
     </body>
