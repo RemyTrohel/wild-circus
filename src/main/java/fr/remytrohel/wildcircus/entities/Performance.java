@@ -1,5 +1,6 @@
 package fr.remytrohel.wildcircus.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,10 @@ public class Performance {
     private Long id;
 
     private String name;
+
+    @Column(length = 500)
     private String description;
+    
     private String artist;
 
     public Performance(Long id, String name, String description, String artist) {
