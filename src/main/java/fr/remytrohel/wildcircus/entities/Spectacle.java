@@ -26,4 +26,50 @@ public class Spectacle {
 
     @ManyToMany
     private Set<Performance> performances = new TreeSet<Performance>();
+
+    public Spectacle(Long id, Date date, Set<Booking> bookings, Set<Performance> performances) {
+        this.id = id;
+        this.date = date;
+        this.bookings = bookings;
+        this.performances = performances;
+    }
+
+    public Spectacle(Date date) {
+        this.date = date;
+    }
+
+    public Spectacle() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+    public Set<Performance> getPerformances() {
+        return performances;
+    }
+
+    public void setPerformances(Set<Performance> performances) {
+        this.performances = performances;
+    }
 }
