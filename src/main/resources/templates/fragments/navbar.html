@@ -2,7 +2,7 @@
 <html lang="EN">
     <body>
         <nav
-            class="navbar navbar-expand-lg navbar-dark reddish bg-grey sticky-top mb-3"
+            class="navbar navbar-expand-lg navbar-dark bg-reddish sticky-top mb-3"
             id="navbar"
         >
             <button
@@ -20,36 +20,36 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/}">
+                        <a class="btn bg-reddish" th:href="@{/}">
                             Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/bookings}">
+                        <a class="btn bg-reddish" th:href="@{/bookings}">
                             Booking
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/performances}">
+                        <a class="btn bg-reddish" th:href="@{/performances}">
                             Performances
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/contact}">
+                        <a class="btn bg-reddish" th:href="@{/contact}">
                             Contact
                         </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item align-self-right" sec:authorize="!isAnonymous()">
-                        <a class="nav-link" th:href="@{/logout}">
+                        <a class="btn bg-reddish" th:href="@{/logout}">
                             Logout
                         </a>
                     </li>
                     <li class="nav-item align-self-right" sec:authorize="isAnonymous()">
                         <a 
                             type="button"
-                            class="nav-link"
+                            class="btn bg-reddish"
                             data-toggle="modal"
                             data-target="#loginModal"
                             data-backdrop=""

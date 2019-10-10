@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <div th:replace="fragments/head.html :: head"></div>
+    <body>
+        <div th:replace="fragments/header.html :: header"></div>
+        <div th:replace="fragments/navbar.html :: nav"></div>
+        <main class="container-fluid">
+            <div class="cards d-flex flex-wrap" th:if="${performances}">
+                <div class="card text-white bg-dark mb-4 w-100" th:each="performance : ${performances}">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img th:src="@{/IMG/circus_default.jpg}" class="card-img" alt="PERFORMANCE PHOTO">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title" th:text="${performance.name}">
+                                    Performance title
+                                </h2>
+                                <div>
+                                    <ion-icon class="align-middle" name="person"></ion-icon>
+                                    <span class="card-text ml-1" th:text="${performance.artist}">
+                                        Performance artist
+                                    </span>
+                                </div>
+                                
+                            </div>
+                            <div class="card-body">
+                                    <a
+                                        type="button"
+                                        class="btn bg-grey"
+                                        th:href="@{'/performances/' + ${performance.id}}"
+                                    >
+                                        Amaze me !
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div th:replace="fragments/script.html :: script"></div>
+    </body>
+</html>
