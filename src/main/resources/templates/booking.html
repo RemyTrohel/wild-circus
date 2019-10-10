@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <div th:replace="fragments/head.html :: head"></div>
+    <body>
+        <div th:replace="fragments/header.html :: header"></div>
+        <div th:replace="fragments/navbar.html :: nav"></div>
+        <main class="container align-items-center justify-content-center">
+            <h2 class="reddish">Booking</h2>
+            <div class="d-flex align-items-center justify-content-center">
+                <form th:action="@{/spectacle}" th:method="post">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend label-width">
+                            <label class="input-group-text flex-centered bg-black" for="date">
+                                Date
+                            </label>
+                        </div>
+                        <input 
+                            id="date" 
+                            type="date" 
+                            th:name="date"
+                            class="form-control bg-grey"
+                            required
+                        >
+                    </div>
+                    <div class="input-group mb-3 justify-content-center">
+                        <button class="btn bg-grey flex-centered" type="submit">
+                            Select date
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <div th:replace="fragments/script.html :: script"></div>
+    </body>
+</html>

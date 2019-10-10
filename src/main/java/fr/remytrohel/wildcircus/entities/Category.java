@@ -19,13 +19,16 @@ public class Category {
 
     private String name;
 
+    private double price;
+
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private Set<Ticket> tickets = new TreeSet<Ticket>();
 
-    public Category(Long id, String name, Set<Ticket> tickets) {
+    public Category(Long id, String name, Set<Ticket> tickets, double price) {
         this.id = id;
         this.name = name;
         this.tickets = tickets;
+        this.price = price;
     }
 
     public Category() {
@@ -34,6 +37,7 @@ public class Category {
     public Category(String name, Set<Ticket> tickets) {
         this.name = name;
         this.tickets = tickets;
+        this.price = 0;
     }
 
     public Long getId() {
@@ -58,5 +62,13 @@ public class Category {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

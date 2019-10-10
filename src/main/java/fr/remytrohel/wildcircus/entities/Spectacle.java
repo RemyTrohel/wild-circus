@@ -1,6 +1,6 @@
 package fr.remytrohel.wildcircus.entities;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.Set;
 import java.util.TreeSet;
 
