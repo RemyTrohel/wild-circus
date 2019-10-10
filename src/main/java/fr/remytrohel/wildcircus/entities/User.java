@@ -10,6 +10,8 @@ import javax.validation.constraints.Email;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Entity
 public class User implements UserDetails {
@@ -37,7 +39,7 @@ public class User implements UserDetails {
 
     public User(String mail, String password, String firstname, String lastname) {
         this.mail = mail;
-        this.password = password;
+        this.setPassword(password);;
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -82,7 +84,8 @@ public class User implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        this.password = encoder.encode(password);
     }
 
     @Override
@@ -97,21 +100,21 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }
