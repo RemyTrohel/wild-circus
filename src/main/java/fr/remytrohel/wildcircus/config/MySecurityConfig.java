@@ -3,6 +3,7 @@ package fr.remytrohel.wildcircus.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -43,7 +44,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter implements We
     protected void configure(HttpSecurity http) throws Exception {
         http
             .csrf().disable().authorizeRequests()
+            .antMatchers(HttpMethod.GET, "/CSS/**", "/IMG/**").permitAll()
             .antMatchers("/**").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/register", true)
+                .failureUrl("/?error=true")
+                .permitAll()
             .and()
             .httpBasic();
     }
