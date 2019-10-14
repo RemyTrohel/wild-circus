@@ -1,11 +1,15 @@
 package fr.remytrohel.wildcircus.entities;
 
 import java.util.Collection;
+import java.util.Set;
+import java.util.TreeSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -29,12 +33,16 @@ public class User implements UserDetails {
     private String firstname;
     private String lastname;
 
-    public User(Long id, String mail, String password, String firstname, String lastname) {
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Booking> bookings = new TreeSet<Booking>();
+
+    public User(Long id, String mail, String password, String firstname, String lastname, Set<Booking> bookings) {
         this.id = id;
         this.mail = mail;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.bookings = bookings;
     }
 
     public User(String mail, String password, String firstname, String lastname) {
@@ -116,5 +124,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Set<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(Set<Booking> bookings) {
+        this.bookings = bookings;
     }
 }

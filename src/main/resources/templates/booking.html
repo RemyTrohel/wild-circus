@@ -29,6 +29,11 @@
                     </div>
                 </form>
             </div>
+            <div class="flex-column align-items-center align-middle justify-content-center">
+                <div class="mb-3 reddish" th:each="booking : ${bookings}">
+                    <div th:text="${booking.spectacle.date + ' - ' + booking.price + '€'}"></div>
+                </div>
+            </div>
         </main>
 
         <div th:replace="fragments/script.html :: script"></div>

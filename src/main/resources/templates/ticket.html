@@ -6,7 +6,7 @@
         <div th:replace="fragments/navbar.html :: nav"></div>
         <main class="container align-items-center justify-content-center">
             <h2 class="reddish">Tickets</h2>
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center mb-5">
                 <form th:action="@{/tickets}" th:object="${ticket}" th:method="post">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend label-width">
@@ -43,7 +43,7 @@
                             th:value="${booking.id}"
                         >
                     </div>
-                    <div class="input-group mb-3 justify-content-center">
+                    <div class="input-group mb-3 justify-content-around">
                         <button class="btn bg-grey flex-centered" type="submit">
                             Add
                         </button>
@@ -56,6 +56,11 @@
                         </a>
                     </div>
                 </form>
+            </div>
+            <div class="flex-column align-items-center align-middle justify-content-center">
+                <div class="mb-3 reddish" th:each="ticket : ${tickets}">
+                    <div th:text="${ticket.category.name + ' : ' + ticket.quantity}"></div>
+                </div>
             </div>
         </main>
         <div th:replace="fragments/script.html :: script"></div>

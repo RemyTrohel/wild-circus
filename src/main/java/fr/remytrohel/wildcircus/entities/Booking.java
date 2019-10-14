@@ -27,13 +27,17 @@ public class Booking {
     @OneToMany
     private Set<Ticket> tickets = new TreeSet<Ticket>();
 
-    public Booking(Spectacle spectacle) {
+    @ManyToOne
+    private User user;
+
+    public Booking(Spectacle spectacle, User user) {
         this.price = 0;
         this.spectacle = spectacle;
         this.confirmed = false;
+        this.user = user;
     }
 
-    public Booking(Long id, double price, boolean confirmed, Spectacle spectacle, Set<Ticket> tickets) {
+    public Booking(Long id, double price, boolean confirmed, Spectacle spectacle, Set<Ticket> tickets, User user) {
         this.id = id;
         this.price = price;
         this.confirmed = confirmed;
@@ -82,5 +86,13 @@ public class Booking {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
