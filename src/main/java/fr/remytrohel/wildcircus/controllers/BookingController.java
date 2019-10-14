@@ -70,7 +70,7 @@ public class BookingController {
     public String confirmReservation(Booking booking) {
         booking.setConfirmed(true);
         booking = bookingRepository.save(booking);
-        return "redirect:/";
+        return "redirect:/bookings";
     }
 
     @DeleteMapping("/bookings")
