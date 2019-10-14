@@ -2,6 +2,7 @@ package fr.remytrohel.wildcircus.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,6 +33,17 @@ public class TicketController {
         booking.setPrice(booking.getPrice() + newPrice);
         booking.getTickets().add(ticket);
         booking = bookingRepository.save(booking);
+        return "redirect:/bookings/" + booking.getId() + "/edit";
+    }
+
+    @DeleteMapping("/tickets")
+    public String removeTicket(@RequestParam Ticket ticket) {
+        Booking booking = ticket.getBooking();
+        double ticketPrice = ticket.getQuantity() * ticket.getCategory().getPrice();
+        booking.setPrice(booking.getPrice() - ticketPrice);
+        booking.getTickets().remove(ticket);
+        booking = bookingRepository.save(booking);
+        ticketRepository.delete(ticket);
         return "redirect:/bookings/" + booking.getId() + "/edit";
     }
 }

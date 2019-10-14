@@ -232,3 +232,17 @@ input[type=number] {
     border-bottom-color: #1A1A1D;
     border-left-color:#1A1A1D;
 }
+
+/* DELETE BUTTON */
+
+.delete-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.delete-form input {
+    text-align: center;
+    width: 100%;
+}

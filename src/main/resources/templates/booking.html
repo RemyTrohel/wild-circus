@@ -30,8 +30,24 @@
                 </form>
             </div>
             <div class="flex-column align-items-center align-middle justify-content-center">
-                <div class="mb-3 reddish" th:each="booking : ${bookings}">
+                <div class="delete-form reddish mb-3" th:each="booking : ${bookings}">
                     <div th:text="${booking.spectacle.date + ' - ' + booking.price + '€'}"></div>
+                    <form
+                        th:action="@{'/bookings'}"
+                        th:method="DELETE"
+                    >
+                        <input
+                            type="hidden"
+                            th:value="${booking.id}"
+                            th:name="booking"
+                        />
+                        <button
+                            type="submit"
+                            class=" ml-3 btn bg-grey flex-centered"
+                        >
+                            X
+                        </button>
+                    </form>
                 </div>
             </div>
         </main>
